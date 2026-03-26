@@ -127,4 +127,15 @@
   html {
     @apply font-sans;
   }
+  h1,
+  h2,
+  h3 {
+    @apply text-black;
+  }
+}
+
+@layer utilities {
+  .text-mini {
+    @apply text-xs;
+  }
 }

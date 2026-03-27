@@ -1,0 +1,33 @@
+{
+  "Header": {
+    "home": "Trang chủ",
+    "login": "Đăng nhập",
+    "register": "Đăng ký"
+  },
+  "Register": {
+    "title": "TasteFood",
+    "description1": "Đang thèm món gì ngon hử? 😋",
+    "description2": "Tạo tài khoản để cắn miếng đầu tiên nào!",
+    "fullName": "Họ và Tên",
+    "fullNamePlaceholder": "VD: Gordon Ramsay",
+    "email": "Địa chỉ Email",
+    "emailPlaceholder": "doi_bung@example.com",
+    "password": "Công thức bí mật (Mật khẩu)",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Xác nhận Công thức bí mật",
+    "confirmPasswordPlaceholder": "••••••••",
+    "submitLoading": "Vô Bếp Nào...",
+    "submit": "Bắt đầu thôi 🍟",
+    "alreadyAccount": "Đã là người nhà rồi sao?",
+    "signIn": "Đăng nhập ngay",
+    "successMessage": "🎉 Đăng ký thành công!",
+    "successDescription": "Chào mừng bạn đến với BiteConnect!",
+    "nameError": "Tên phải có ít nhất 3 ký tự",
+    "emailError": "Địa chỉ email không hợp lệ",
+    "passwordError": "Mật khẩu phải có ít nhất 6 ký tự",
+    "passwordMismatch": "Hổng trùng khớp nha! (Passwords do not match)"
+  },
+  "Login": {
+    "title": "Đăng nhập"
+  }
+}

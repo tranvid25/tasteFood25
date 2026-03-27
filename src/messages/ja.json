@@ -1,0 +1,13 @@
+{
+  "Header": {
+    "home": "ホーム",
+    "login": "ログイン",
+    "register": "登録"
+  },
+  "Register": {
+    "title": "登録"
+  },
+  "Login": {
+    "title": "ログイン"
+  }
+}

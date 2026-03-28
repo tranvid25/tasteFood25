@@ -6,4 +6,7 @@ export const api = {
   product: productApi,
 };
 
-export type { ApiResponse } from "../../infrastructure/http/apiClient";
+export type {
+  ApiResponse,
+  ApiErrorPayload,
+} from "../../infrastructure/http/apiClient";

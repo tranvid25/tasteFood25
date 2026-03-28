@@ -9,5 +9,20 @@
   },
   "Login": {
     "title": "ログイン"
+  },
+  "Errors": {
+    "VALIDATION_ERROR": "入力内容を確認してください。",
+    "INVALID_EMAIL": "メールアドレスの形式が正しくありません。",
+    "EMAIL_REQUIRED": "メールアドレスを入力してください。",
+    "PASSWORD_TOO_SHORT": "パスワードは6文字以上にしてください。",
+    "PASSWORD_REQUIRED": "パスワードを入力してください。",
+    "PASSWORD_MUST_BE_STRING": "パスワードの形式が正しくありません。",
+    "NAME_MUST_BE_STRING": "名前の形式が正しくありません。",
+    "NAME_TOO_SHORT": "名前は3文字以上にしてください。",
+    "EMAIL_ALREADY_EXISTS": "このメールアドレスは既に登録されています。",
+    "INVALID_CREDENTIALS": "メールまたはパスワードが正しくありません。",
+    "UNKNOWN_ERROR": "エラーが発生しました。もう一度お試しください。",
+    "NETWORK_ERROR": "サーバーに接続できません。接続を確認してください。",
+    "INTERNAL_ERROR": "サーバーエラーです。しばらくしてからお試しください。"
   }
 }

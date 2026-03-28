@@ -9,11 +9,17 @@ type Options = {
   cache?: RequestCache;
 };
 
+export type ApiErrorPayload = {
+  code: string;
+  details: Record<string, string[]> | null;
+};
+
 export type ApiResponse<T> = {
   success: boolean;
   data?: T;
   message?: string;
-  errors?: any;
+  errors?: unknown;
+  error?: ApiErrorPayload;
 };
 
 export async function apiClient<T>(
@@ -48,24 +54,51 @@ export async function apiClient<T>(
       cache,
     });
 
-    const data = await res.json();
+    let data: Record<string, unknown>;
+    try {
+      data = (await res.json()) as Record<string, unknown>;
+    } catch {
+      data = {};
+    }
 
     if (!res.ok) {
+      const err = data.error as Partial<ApiErrorPayload> | undefined;
+      if (err && typeof err === "object" && typeof err.code === "string") {
+        return {
+          success: false,
+          error: {
+            code: err.code,
+            details:
+              "details" in err && err.details !== undefined
+                ? err.details
+                : null,
+          },
+        };
+      }
+
       return {
         success: false,
-        message: data.message || "Đã xảy ra lỗi",
+        message:
+          (typeof data.message === "string" && data.message) ||
+          "Đã xảy ra lỗi",
         errors: data.errors,
       };
     }
 
     return {
       success: true,
-      data,
+      data: data as T,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg =
+      error instanceof Error ? error.message : "Không thể kết nối đến máy chủ";
     return {
       success: false,
-      message: error.message || "Không thể kết nối đến máy chủ",
+      message: msg,
+      error: {
+        code: "NETWORK_ERROR",
+        details: null,
+      },
     };
   }
 }

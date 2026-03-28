@@ -28,8 +28,10 @@ import { Input } from "@/src/app/components/ui/input";
 import { api } from "@/src/lib/api";
 
 import { registerSchema } from "@/src/validator/auth.validator";
+import { handleApiError } from "@/src/common/handleError";
 export function RegisterForm() {
   const t = useTranslations("Register");
+  const tErrors = useTranslations("Errors");
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
@@ -52,10 +54,8 @@ export function RegisterForm() {
         password: data.password,
       });
 
-      if ("success" in result && result.success === false) {
-        toast.error("Đăng ký thất bại", {
-          description: result.message as string,
-        });
+      if (!result.success) {
+        handleApiError(result, tErrors);
         return;
       }
 
@@ -63,10 +63,8 @@ export function RegisterForm() {
         description: t("successDescription"),
       });
       router.push("/login");
-    } catch {
-      toast.error("Đăng ký thất bại", {
-        description: "Đã xảy ra lỗi không mong muốn",
-      });
+    } catch (err) {
+      handleApiError(err, tErrors);
     }
   }
 

@@ -29,5 +29,20 @@
   },
   "Login": {
     "title": "Đăng nhập"
+  },
+  "Errors": {
+    "VALIDATION_ERROR": "Vui lòng kiểm tra lại thông tin.",
+    "INVALID_EMAIL": "Email không hợp lệ.",
+    "EMAIL_REQUIRED": "Vui lòng nhập email.",
+    "PASSWORD_TOO_SHORT": "Mật khẩu phải có ít nhất 6 ký tự.",
+    "PASSWORD_REQUIRED": "Vui lòng nhập mật khẩu.",
+    "PASSWORD_MUST_BE_STRING": "Mật khẩu không hợp lệ.",
+    "NAME_MUST_BE_STRING": "Tên không hợp lệ.",
+    "NAME_TOO_SHORT": "Tên phải có ít nhất 3 ký tự.",
+    "EMAIL_ALREADY_EXISTS": "Email này đã được đăng ký.",
+    "INVALID_CREDENTIALS": "Email hoặc mật khẩu không đúng.",
+    "UNKNOWN_ERROR": "Đã có lỗi xảy ra. Vui lòng thử lại.",
+    "NETWORK_ERROR": "Không kết nối được máy chủ. Kiểm tra mạng nhé.",
+    "INTERNAL_ERROR": "Lỗi máy chủ. Vui lòng thử lại sau."
   }
 }

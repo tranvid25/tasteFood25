@@ -29,5 +29,20 @@
   },
   "Login": {
     "title": "Login"
+  },
+  "Errors": {
+    "VALIDATION_ERROR": "Please check the form and try again.",
+    "INVALID_EMAIL": "Invalid email address.",
+    "EMAIL_REQUIRED": "Email is required.",
+    "PASSWORD_TOO_SHORT": "Password must be at least 6 characters.",
+    "PASSWORD_REQUIRED": "Password is required.",
+    "PASSWORD_MUST_BE_STRING": "Password must be text.",
+    "NAME_MUST_BE_STRING": "Name must be text.",
+    "NAME_TOO_SHORT": "Name must be at least 3 characters.",
+    "EMAIL_ALREADY_EXISTS": "This email is already registered.",
+    "INVALID_CREDENTIALS": "Invalid email or password.",
+    "UNKNOWN_ERROR": "Something went wrong. Please try again.",
+    "NETWORK_ERROR": "Could not reach the server. Check your connection.",
+    "INTERNAL_ERROR": "Server error. Please try again later."
   }
 }

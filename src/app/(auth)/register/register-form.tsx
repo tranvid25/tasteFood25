@@ -25,26 +25,17 @@ import {
   FieldLabel,
 } from "@/src/app/components/ui/field";
 import { Input } from "@/src/app/components/ui/input";
+import { api } from "@/src/lib/api";
 
-const formSchema = z
-  .object({
-    name: z.string().min(3, "Name must be at least 3 characters long"),
-    email: z.string().email("Invalid email address"),
-    password: z.string().min(6, "Password must be at least 6 characters long"),
-    confirmPassword: z.string(),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Hổng trùng khớp nha! (Passwords do not match)",
-    path: ["confirmPassword"],
-  });
+import { registerSchema } from "@/src/validator/auth.validator";
 export function RegisterForm() {
   const t = useTranslations("Register");
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -53,19 +44,32 @@ export function RegisterForm() {
     },
   });
 
-  async function onSubmit(data: z.infer<typeof formSchema>) {
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
-    
-    // Show toast
-    toast.success(t('successMessage'), {
-      description: t('successDescription'),
-    });
-    
-    // Redirect logic
-    // router.push("/login");
+  async function onSubmit(data: z.infer<typeof registerSchema>) {
+    try {
+      const result = await api.auth.register({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+      });
+
+      if ("success" in result && result.success === false) {
+        toast.error("Đăng ký thất bại", {
+          description: result.message as string,
+        });
+        return;
+      }
+
+      toast.success(t("successMessage"), {
+        description: t("successDescription"),
+      });
+      router.push("/login");
+    } catch {
+      toast.error("Đăng ký thất bại", {
+        description: "Đã xảy ra lỗi không mong muốn",
+      });
+    }
   }
+
 
   return (
     <Card className="relative z-10 w-full max-w-[420px] mx-4 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(234,88,12,0.3)] border-orange-200/40 dark:border-orange-900/30 rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(234,88,12,0.4)]">

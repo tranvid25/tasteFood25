@@ -1,0 +1,33 @@
+{
+  "Header": {
+    "home": "Home",
+    "login": "Login",
+    "register": "Register"
+  },
+  "Register": {
+    "title": "TasteFood",
+    "description1": "Craving something delicious? 😋",
+    "description2": "Create an account to grab your first bite!",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "e.g. Gordon Ramsay",
+    "email": "Email Address",
+    "emailPlaceholder": "hungry@example.com",
+    "password": "Secret Recipe (Password)",
+    "passwordPlaceholder": "••••••••",
+    "confirmPassword": "Confirm Secret Recipe",
+    "confirmPasswordPlaceholder": "••••••••",
+    "submitLoading": "Vô Bếp Nào...",
+    "submit": "Get Started 🍟",
+    "alreadyAccount": "Already part of the fam?",
+    "signIn": "Sign In Here",
+    "successMessage": "🎉 Registration successful!",
+    "successDescription": "Welcome to BiteConnect!",
+    "nameError": "Name must be at least 3 characters long",
+    "emailError": "Invalid email address",
+    "passwordError": "Password must be at least 6 characters long",
+    "passwordMismatch": "Hổng trùng khớp nha! (Passwords do not match)"
+  },
+  "Login": {
+    "title": "Login"
+  }
+}
